@@ -13,19 +13,17 @@ const eventSchema = new mongoose.Schema(
     },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User', // References the User who created the group
+      ref: 'User',
       required: true,
     },
     members: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User', // Array of User IDs who belong to this split pool
+        ref: 'User',
       },
     ],
   },
-  {
-    timestamps: true, // Automatically manages createdAt and updatedAt
-  }
+  { timestamps: true }
 );
 
 const Event = mongoose.model('Event', eventSchema);
